@@ -9,6 +9,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.listadecompras.modelo.ComprasDatabaseHelper;
 import com.example.listadecompras.modelo.ListaDeCompras;
 import com.example.listadecompras.modelo.Producto;
 
@@ -29,6 +30,7 @@ public class NuevoProductoActivity extends AppCompatActivity {
     }
 
     public void ingresarProducto(View view){
+        ComprasDatabaseHelper helper=new ComprasDatabaseHelper(this);
         String nombre=((TextView)findViewById(R.id.ingresarNombre)).getText().toString();
         String cantidadStr=((TextView)findViewById(R.id.ingresarCantidad)).getText().toString();
         String unidad=((Spinner)findViewById(R.id.ingresarUnidad)).getSelectedItem().toString();
@@ -51,7 +53,7 @@ public class NuevoProductoActivity extends AppCompatActivity {
             }
             //No hay errores
 
-            ListaDeCompras.getInstancia().agregarProducto(producto);
+            helper.ingresarProducto(producto); //Ingresamos el producto a la base de datos
             finish();
         }
         else{

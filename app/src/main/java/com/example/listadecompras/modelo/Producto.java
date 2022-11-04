@@ -11,6 +11,12 @@ public class Producto {
     public static final boolean PENDIENTE=true;  // <-- variable constante
     public static final boolean COMPRADO=false;  // <-- variable constante
 
+    public Producto(String nombre, int cantidad, String unidad, boolean estado) {
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.unidad = unidad;
+        this.estado = estado;
+    }
 
     /*
     public static final Producto[] productos=
